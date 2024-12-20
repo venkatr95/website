@@ -177,6 +177,7 @@ export const ContainerHeader = styled.header`
       &.active{
         opacity: 1;
         visibility: visible;
+        background-color: grey;
       }
     }
   }

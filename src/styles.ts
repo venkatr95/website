@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
           background-color: var(--black); 
         }
         .menu.active{
-          background-color: rgba(555,555,555,0);
+          background-color: rgba(0,0,0,0);
         }
       }
 
@@ -54,6 +54,37 @@ export const GlobalStyle = createGlobalStyle`
           }
         }
       }
+
+    @media (max-width: 960px){
+      nav {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: var(--blue);
+        top: 0;
+        left: 0;
+        transition: opacity 0.25s;
+        background-color: var(--silver);
+
+        a.button{
+          background-color: var(--green);
+        }
+
+        &.active{
+          opacity: 1;
+          visibility: visible;
+          background-color: silver;
+        }
+      }
+  }
 
     }
   }
