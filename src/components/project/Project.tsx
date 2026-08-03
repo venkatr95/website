@@ -1,86 +1,71 @@
-import { Container } from "./styles";
-import githubIcon from "../../assets/github.svg"
-import ScrollAnimation from "react-animate-on-scroll";
+import { GlassCard } from '../ui/GlassCard'
+
+const caseStudies = [
+  {
+    tag: 'Rohde & Schwarz · Spectrum Analyzer',
+    title: 'Real-time Radar Measurement Firmware + Web UI',
+    problem:
+      'The Spectrum Analyzer T&M application needed faster iteration without regressing measurement accuracy.',
+    approach:
+      'Engineered the real-time measurement firmware in C++ and built the React-based web interface on top of it, with tighter design reviews baked into the workflow.',
+    outcome: '50% reduction in delivery time through optimized code and design reviews.',
+    stack: ['C++', 'React', 'Firmware'],
+  },
+  {
+    tag: 'Rohde & Schwarz · Platform',
+    title: 'Kubernetes-driven Cross-platform Integration',
+    problem:
+      'Release delivery across platforms relied on manual steps, slowing down customer-facing feature releases.',
+    approach:
+      'Led DevOps automation and cross-platform integration on Kubernetes, working directly with product managers to keep releases high-quality and customer-focused.',
+    outcome: '30% improvement in delivery efficiency, with sustained release quality.',
+    stack: ['Kubernetes', 'CI/CD', 'DevOps'],
+  },
+  {
+    tag: 'Siemens LDA · Augmented Reality',
+    title: 'AR Cloud Applications on AWS',
+    problem:
+      '3D models for augmented reality tooling needed better accuracy and to scale across more use cases.',
+    approach:
+      'Developed and deployed AR cloud applications on AWS with an Angular front end, optimizing the underlying 3D models for cross-platform use.',
+    outcome: '20% improvement in model accuracy, 25% gain in scalability.',
+    stack: ['AWS', 'Angular', '3D/AR'],
+  },
+]
 
 export function Project() {
   return (
-    <Container id="project">
-      <h2>My Projects</h2>
-      <div className="projects">
+    <section id="project" className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
+      <h2 className="text-sm font-mono uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400 px-1">
+        Case Studies
+      </h2>
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+        {caseStudies.map((c, i) => (
+          <GlassCard key={c.title} delay={i * 0.08} className="p-6 flex flex-col">
+            <span className="text-[11px] font-mono uppercase tracking-wide text-indigo-500 dark:text-cyan-300">
+              {c.tag}
+            </span>
+            <h3 className="mt-3 text-base font-semibold text-zinc-900 dark:text-zinc-50">{c.title}</h3>
 
-        <ScrollAnimation animateIn="flipInX">
-          <div className="project">
-            <header>
-              <svg width="50" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="#23ce6b" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"> <title>Folder</title> <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path> </svg>
-              <div className="project-links">
-                <a href="https://github.com/venkatr95/mqtt-broker-example" target="_blank" rel="noreferrer">
-                  <img src={githubIcon} alt="Visit site" /></a>
-                </div>
-            </header>
-            <div className="body">
-              <h3>MQTT Broker Consumer and Producer Example</h3>
-              <p> Consumer and Producer Models using mqtt and C++ </p>
+            <div className="mt-4 space-y-3 text-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <p><span className="font-medium text-zinc-700 dark:text-zinc-300">Problem — </span>{c.problem}</p>
+              <p><span className="font-medium text-zinc-700 dark:text-zinc-300">Approach — </span>{c.approach}</p>
+              <p><span className="font-medium text-zinc-700 dark:text-zinc-300">Outcome — </span>{c.outcome}</p>
             </div>
-            <footer> <ul className="tech-list"> <li>C++</li></ul> </footer>
-          </div>
-        </ScrollAnimation>
 
-        <ScrollAnimation animateIn="flipInX">
-          <div className="project">
-            <header>
-              <svg width="50" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="#23ce6b " strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><title>Folder</title> <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path> </svg>
-              <div className="project-links">
-                <a href="https://github.com/venkatr95/Social-Distancing-OpenCV-DL" target="_blank" rel="noreferrer">
-                  <img src={githubIcon} alt="Visit site" /> </a>
-              </div>
-            </header>
-            <div className="body">
-              <h3>Social Distancing Using OpenCV and DL</h3>
-              <p>
-                To detect people using object detection and find the distance between people to check whether a norm social distance of 1.5m is maintained by people.
-              </p>
-            </div>
-            <footer>
-              <ul className="tech-list">
-                <li>Python</li>
-                <li>OpenCV</li>
-                <li>YOLOv3</li>
-              </ul>
-            </footer>
-          </div>
-        </ScrollAnimation>
-
-        <ScrollAnimation animateIn="flipInX">
-          <div className="project">
-            <header>
-              <svg width="50" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="#23ce6b" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                <title>Folder</title>
-                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-              </svg>
-              <div className="project-links">
-                <a href="https://github.com/venkatr95/StockPrice-Prediction-NN" target="\_blank" rel="noreferrer">
-                  <img src={githubIcon} alt="Visit site" />
-                </a>
-              </div>
-            </header>
-            <div className="body">
-              <h3>StockPrice-Prediction using AI
-              </h3>
-              <p>
-              Time-series modelling of stock entities using a LSTM (long-short term memory) network to predict the price. The dataset is taken from open-source Yahoo website
-              </p>
-            </div>
-            <footer>
-              <ul className="tech-list">
-                <li>Python</li>
-                <li>Pandas</li>
-                <li>Matplotlib</li>
-              </ul>
-            </footer>
-          </div>
-        </ScrollAnimation>
-
+            <ul className="mt-5 flex flex-wrap gap-1.5">
+              {c.stack.map((s) => (
+                <li
+                  key={s}
+                  className="rounded-full bg-black/[0.03] dark:bg-white/[0.05] px-2.5 py-1 text-[10px] font-medium text-zinc-600 dark:text-zinc-400"
+                >
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </GlassCard>
+        ))}
       </div>
-    </Container>
-  );
+    </section>
+  )
 }

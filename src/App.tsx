@@ -1,17 +1,19 @@
 import React from 'react'
 import { Main } from './components/main/Main'
-import { GlobalStyle } from './styles'
 import 'react-toastify/dist/ReactToastify.css'
 import { Header } from './components/page/Header'
 import { Footer } from './components/page/Footer'
+import { ThemeProvider } from './context/ThemeContext'
+import { AmbientBackground } from './components/ui/AmbientBackground'
+
 function App() {
   return (
-    <>
-      <GlobalStyle></GlobalStyle>
-      <Header></Header>
-      <Main></Main>
-      <Footer></Footer>
-    </>
+    <ThemeProvider>
+      <AmbientBackground />
+      <Header />
+      <Main />
+      <Footer />
+    </ThemeProvider>
   )
 }
 

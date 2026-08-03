@@ -1,91 +1,81 @@
-import { Container } from "./styles";
-import Venkat from "../../assets/venkat.png";
-import cIcon from "../../assets/c++_icon.svg";
-import pyIcon from "../../assets/python-icon.svg";
-import flutterIcon from "../../assets/flutter-icon.svg";
-import nodeIcon from "../../assets/node-icon.svg";
-import reactIcon from "../../assets/react-icon.svg";
-import typescriptIcon from "../../assets/typescript-icon.svg";
-import ScrollAnimation from "react-animate-on-scroll";
+import { motion } from 'framer-motion'
+import { GlassCard } from '../ui/GlassCard'
+import Venkat from '../../assets/venkat.png'
+
+const competencies = [
+  'C++ / Firmware',
+  'React / Angular',
+  'Kubernetes & DevOps',
+  'AWS (S3, EC2, RDS)',
+  'REST / gRPC APIs',
+  'Stakeholder Management',
+  'Machine Learning & GenAI',
+  'Cross-functional Collaboration',
+]
 
 export function About() {
   return (
-    <Container id="about">
-      <div className="about-text">
-        <ScrollAnimation animateIn="fadeInLeft">
-          <h2>About me</h2>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.1 * 1000}>
-        <p className="justify-text">
-            Hi there! I'm Venkat, a software and product developer with a passion for creating hassle-free experiences for my customers.
-          </p>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.2 * 1000} style={{ marginTop: "2rem", marginBottom: "2rem" }}>
-          <p className="justify-text">
-          I work as an Engineer in a cross-functional team of five, building unique use-cases that commit to a one-package solution.
-          I'm deeply passionate about creating trusted and user-friendly products that help end-users or vendors to upskill their business.
-          </p>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.3 * 1000}>
-          <p className="justify-text">
-          If you catch me outside of work, I'm an avid traveler - 10 countries and counting - and a fan of cricket and football!
-          I also like meeting new people over a cup of coffee. Always like to discuss on new ideas and strategies.
-          </p>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInLeft" delay={0.4 * 1000}>
-          <h3>Here are my main competencies:</h3>
-          <p>
-            Frontend - React, Angular (Typescript) <br/>
-            Backend - C++, Python <br/>
-            DB - MongoDB, PostgreSQL <br/>
-            Cloud - AWS <br/>
-            API Design - REST, gRPC, GraphQL <br/>
-            OS Competency - Linux and Windows <br/>
-          </p>
-        </ScrollAnimation>
-        <div className="hard-skills">
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.16 * 1000}>
-              <img src={cIcon} alt="C++" />
-            </ScrollAnimation>
+    <section id="about" className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
+      <GlassCard className="p-8 sm:p-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-10">
+          <div>
+            <h2 className="text-sm font-mono uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+              Profile
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
+              I'm Venkat, a Senior Application Engineer at Rohde &amp; Schwarz in Munich, with
+              6+ years building test-and-measurement applications — real-time radar firmware in
+              C++, and the React/Angular interfaces engineers actually use to work with it.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              I'm now working toward a move into product management. I already sit close to that
+              work — scoping releases with PMs, owning DevOps automation that cut delivery
+              overhead by 30%, and translating customer feedback into firmware and UI changes. I
+              recently completed a Product Management (Generative &amp; Agentic AI) program at
+              BITS to formalize that transition.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              Outside of work — 26+ countries and counting as a traveler, a badminton player, and
+              a landscape/art photographer. I speak six languages (Kannada, English, German,
+              Hindi, Tamil, Telugu), which helps more than you'd expect in stakeholder
+              conversations.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-2">
+              {competencies.map((c, i) => (
+                <motion.span
+                  key={c}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.04, mass: 0.4, stiffness: 140, damping: 18 }}
+                  className="rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-300"
+                >
+                  {c}
+                </motion.span>
+              ))}
+            </div>
           </div>
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.16 * 1000}>
-              <img src={pyIcon} alt="Python" />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.16 * 1000}>
-              <img src={flutterIcon} alt="Flutter" />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.16 * 1000}>
-              <img src={cIcon} alt="C++" />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.13 * 1000}>
-              <img src={reactIcon} alt="React" />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.14 * 1000}>
-              <img src={typescriptIcon} alt="Typescript" />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation animateIn="fadeInUp" delay={0.16 * 1000}>
-              <img src={nodeIcon} alt="Node" />
-            </ScrollAnimation>
+
+          <div className="flex flex-col items-center lg:items-end gap-5">
+            <img
+              src={Venkat}
+              alt="Venkat Madhavan"
+              className="h-56 w-56 rounded-3xl object-cover border border-black/[0.06] dark:border-white/[0.08] shadow-xl"
+            />
+            <a
+              href={`${import.meta.env.BASE_URL}CV_VenkatMadhavan.pdf`}
+              download
+              className="inline-flex items-center gap-2 rounded-full bg-zinc-900 dark:bg-white px-5 py-2.5 text-sm font-medium text-white dark:text-zinc-900 transition-transform hover:scale-[1.03] active:scale-[0.98]"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" />
+              </svg>
+              Download Resume
+            </a>
           </div>
         </div>
-      </div>
-      <div className="about-image">
-        <ScrollAnimation animateIn="fadeInRight" delay={0.20 * 1000}>
-          <img src={Venkat} alt="Venkat Madhavan" />
-        </ScrollAnimation>
-      </div>
-    </Container>
+      </GlassCard>
+    </section>
   )
 }
